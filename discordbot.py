@@ -35,4 +35,9 @@ async def loop():
         await channel_send("筋トレだ、ヤーーーーー！！")
 loop.start()
 
+@client.event
+async def on_message(message): #メッセージを受け取る関数なので必ず必要
+    if message.content == "きんにくん": #:を忘れずつけよう！Enterを押すと自動で4文字分あけて改行されるよ！
+        await client.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
+
 client.run("token")
