@@ -1,18 +1,17 @@
 import discord
 from discord.ext import commands
-import os
+import os, sys
 import traceback
 import random
 from discord.ext import tasks
 from datetime import datetime
 
 bot = commands.Bot(command_prefix='/')
-client = discord.Client()
-token = os.environ['DISCORD_BOT_TOKEN']
+token = "NzAwNTE3NTUxOTk3NzE0NDMz.XplJhg.PT9hMn8qBRzZhMGH23EmGBCCUoQ"
 
-@client.event
+
+@bot.event
 async def on_ready():
-    # 起動したらターミナルにログイン通知が表示される
     print('パワーーーーーーー！！')
 
 @bot.event
@@ -25,25 +24,35 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def power(ctx):
     await ctx.send('パワーーーーーーーーー！！')
-bot.run(token)
 
-@client.event
-async def on_message(message): #メッセージを受け取る関数なので必ず必要
-    if message.content == 'きんにくん':
-        await client.send_message(message.channel, 'パソコン、Python、パワーーーーーーー！！')
 
-    #if message.content == "筋トレ":
-       # kaisu = ["10", "15", "20", "25", "30", "35", "40"]
-      #  syurui = ["腕立て", "腹筋", "背筋", "スクワット", "プランク", "全部"]
-      #  choice1 = random.choice(kaisu) #randomモジュール使用
-      #  choice2 = random.choice(syurui) #randomモジュール使用
-      #  await message.send_message(message.channel, choice2 "を" choice1 "回！ヤーー！！")
-        
+@bot.event
+async def on_message(message):
+    if 'きんにくん' in message.content:
+        await message.channel.send('パソコン、Python、パワーーーーーーー！！')
+
+    if "筋トレ" in message.content:
+        kaisu = ["10", "15", "20", "25", "30", "35", "40"]
+        syurui = ["腕立て", "腹筋", "背筋", "スクワット", "プランク", "全部"]
+        choice1 = random.choice(kaisu) #randomモジュール使用
+        choice2 = random.choice(syurui) #randomモジュール使用
+        unit = "秒" if choice2 == "プランク" else "回"
+        await message.channel.send(f"{choice2}を{choice1}{unit}！ヤーー！！")
+
+    if "アーイアアーイ" in message.content:
+        await message.channel.send("EVERYBODY PASSION")
+        await bot.logout()
+        await sys.exit()
+
 @tasks.loop(seconds=60)
 async def loop():
-    now = datetime.now().strftime('%H:%M')
-    if now == '15:00':
-        channel = client.get_channel(695294256603988009)
-        await channel_send('筋トレだ、ヤーーーーー！！')
+    try:
+        now = datetime.now().strftime('%H:%M')
+        if now == '15:00':
+            print("now")
+            channel = bot.get_channel(695294256603988009)
+            await channel.send('筋トレだ、ヤーーーーー！！')
+    except:
+        print("エラー")
 loop.start()
-client.run("token")
+bot.run(token)
