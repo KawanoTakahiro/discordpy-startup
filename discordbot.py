@@ -25,13 +25,17 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def power(ctx):
     await ctx.send('パワーーーーーーーーー！！')
+bot.run(token)
 
+@tasks.loop(seconds=60)
 async def loop():
     now = datetime.now().strftime('%H:%M')
     if now == '12:00':
         channel = client.get_channel(695294256603988009)
         await channel_send("筋トレだ、ヤーーーーー！！")
-bot.run(token)
+loop.start()
+client.run(token)
+
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
     if message.content == "きんにくん": #:を忘れずつけよう！Enterを押すと自動で4文字分あけて改行されるよ！
