@@ -7,7 +7,7 @@ from discord.ext import tasks
 from datetime import datetime
 
 bot = commands.Bot(command_prefix='/')
-token = "NzAwNTE3NTUxOTk3NzE0NDMz.XplJhg.PT9hMn8qBRzZhMGH23EmGBCCUoQ"
+token = os.environ['DISCORD_BOT_TOKEN']
 
 
 @bot.event
