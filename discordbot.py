@@ -39,7 +39,7 @@ client.run("token")
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
     if message.content.startswith == "きんにくん":
-        await client.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
+        await channel.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
 
     #if message.content == "筋トレ":
        # kaisu = ["10", "15", "20", "25", "30", "35", "40"]
