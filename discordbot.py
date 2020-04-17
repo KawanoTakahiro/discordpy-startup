@@ -1,10 +1,10 @@
+import discord
 from discord.ext import commands
 import os
 import traceback
 import random
 from discord.ext import tasks
 from datetime import datetime
-import discord
 
 bot = commands.Bot(command_prefix='/')
 client = discord.Client()
