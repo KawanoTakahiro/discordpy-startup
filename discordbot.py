@@ -2,18 +2,20 @@ from discord.ext import commands
 import os
 import traceback
 import random
-import discord
 from discord.ext import tasks
 from datetime import datetime
+
+import discord
 
 bot = commands.Bot(command_prefix='/')
 client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
-@bot.event
+@client..event
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('パワーーーーーーー！！')
+client.run("token")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -38,8 +40,8 @@ client.run("token")
 
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
-    if message.content == "/pa":
-        await channel.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
+    if message.content == "きんにくん":
+        await client.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
 
     #if message.content == "筋トレ":
        # kaisu = ["10", "15", "20", "25", "30", "35", "40"]
