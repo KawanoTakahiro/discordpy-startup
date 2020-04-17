@@ -31,7 +31,7 @@ bot.run(token)
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
     if message.content == "きんにくん":
-        await client.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
+        await client.send_message(message.channel, 'パソコン、Python、パワーーーーーーー！！')
 
     #if message.content == "筋トレ":
        # kaisu = ["10", "15", "20", "25", "30", "35", "40"]
@@ -45,6 +45,6 @@ async def loop():
     now = datetime.now().strftime('%H:%M')
     if now == '15:00':
         channel = client.get_channel(695294256603988009)
-        await channel_send("筋トレだ、ヤーーーーー！！")
+        await channel_send('筋トレだ、ヤーーーーー！！')
 loop.start()
 client.run("token")
