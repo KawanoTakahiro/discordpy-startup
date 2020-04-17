@@ -19,16 +19,10 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-async def on_message(message):
-    if message.author.bot:
-        return
-    if message.content == '/power':
-        await message.channel.send('パワーーーーーーーーー！！')
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
+async def power(ctx):
+    await ctx.send('パワーーーーーーーーー！！')
 
 async def loop():
   now = datetime.now().strftime('%H:%M')
