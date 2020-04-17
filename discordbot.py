@@ -27,10 +27,10 @@ async def power(ctx):
     await ctx.send('パワーーーーーーーーー！！')
 
 async def loop():
-  now = datetime.now().strftime('%H:%M')
-  if now == '12:00':
-    channel = client.get_channel(695294256603988009)
-    await channel_send("筋トレだ、ヤーーーーー！！")
+    now = datetime.now().strftime('%H:%M')
+    if now == '12:00':
+        channel = client.get_channel(695294256603988009)
+        await channel_send("筋トレだ、ヤーーーーー！！")
 
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
