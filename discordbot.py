@@ -8,6 +8,11 @@ from datetime import datetime
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+client.on('ready', message =>
+{
+  client.user.setPresence({ game: { name: 'パ、パ、パワーーーー！！' } });
+  console.log('Muscle!!');
+});
 
 @bot.event
 async def on_command_error(ctx, error):
