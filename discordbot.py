@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import random
 import discord
 from discord.ext import tasks
 from datetime import datetime
