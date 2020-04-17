@@ -28,7 +28,7 @@ async def ping(ctx):
 
 async def loop():
   now = datetime.now().strftime('%H:%M')
-  if now == '13:00':
+  if now == '12:00':
     channel = client.get_channel(695294256603988009)
     await channel_send("筋トレだ、ヤーーーーー！！")
 
