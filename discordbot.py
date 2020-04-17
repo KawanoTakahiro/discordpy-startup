@@ -6,6 +6,7 @@ from discord.ext import tasks
 from datetime import datetime
 
 bot = commands.Bot(command_prefix='/')
+client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
