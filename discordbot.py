@@ -8,11 +8,9 @@ from datetime import datetime
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-client.on('ready', message =>
-{
-  client.user.setPresence({ game: { name: 'パ、パ、パワーーーー！！' } });
-  console.log('Muscle!!');
-});
+async def on_ready():
+    # 起動したらターミナルにログイン通知が表示される
+    print('パワーーーーーーー！！')
 
 @bot.event
 async def on_command_error(ctx, error):
