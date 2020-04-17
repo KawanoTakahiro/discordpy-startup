@@ -7,7 +7,7 @@ from discord.ext import tasks
 from datetime import datetime
 
 bot = commands.Bot(command_prefix='/')
-#client = discord.Client()
+client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
@@ -31,7 +31,7 @@ async def loop():
     if now == '12:00':
         channel = client.get_channel(695294256603988009)
         await channel_send("筋トレだ、ヤーーーーー！！")
-
+bot.run(token)
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
     if message.content == "きんにくん": #:を忘れずつけよう！Enterを押すと自動で4文字分あけて改行されるよ！
@@ -43,5 +43,4 @@ async def on_message(message): #メッセージを受け取る関数なので必
         choice1 = random.choice(kaisu) #randomモジュール使用
         choice2 = random.choice(syurui) #randomモジュール使用
         await message.send_message(message.channel, choice2 "を" choice1 "回！ヤーー！！")
-        
-bot.run(token)
+client.run("token")
