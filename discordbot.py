@@ -15,7 +15,6 @@ token = os.environ['DISCORD_BOT_TOKEN']
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('パワーーーーーーー！！')
-client.run("token")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -29,15 +28,6 @@ async def power(ctx):
     await ctx.send('パワーーーーーーーーー！！')
 bot.run(token)
 
-@tasks.loop(seconds=60)
-async def loop():
-    now = datetime.now().strftime('%H:%M')
-    if now == '15:00':
-        channel = client.get_channel(695294256603988009)
-        await channel_send("筋トレだ、ヤーーーーー！！")
-loop.start()
-client.run("token")
-
 @client.event
 async def on_message(message): #メッセージを受け取る関数なので必ず必要
     if message.content == "きんにくん":
@@ -49,4 +39,12 @@ async def on_message(message): #メッセージを受け取る関数なので必
       #  choice1 = random.choice(kaisu) #randomモジュール使用
       #  choice2 = random.choice(syurui) #randomモジュール使用
       #  await message.send_message(message.channel, choice2 "を" choice1 "回！ヤーー！！")
+        
+@tasks.loop(seconds=60)
+async def loop():
+    now = datetime.now().strftime('%H:%M')
+    if now == '15:00':
+        channel = client.get_channel(695294256603988009)
+        await channel_send("筋トレだ、ヤーーーーー！！")
+loop.start()
 client.run("token")
