@@ -44,4 +44,4 @@ async def on_message(message): #メッセージを受け取る関数なので必
         choice2 = random.choice(syurui) #randomモジュール使用
         await message.send_message(message.channel, choice2 "を" choice1 "回！ヤーー！！")
 
-bot.run(token)
+bot.run(YHYybGKg9FUVkNkm72_ekIeiaydWHP11)
