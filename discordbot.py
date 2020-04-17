@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix='/')
 client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
-@client..event
+@client.event
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('パワーーーーーーー！！')
