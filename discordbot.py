@@ -32,5 +32,16 @@ async def loop():
     channel = client.get_channel(695294256603988009)
     await channel_send("筋トレだ、ヤーーーーー！！")
 
+@client.event
+async def on_message(message): #メッセージを受け取る関数なので必ず必要
+    if message.content == "きんにくん": #:を忘れずつけよう！Enterを押すと自動で4文字分あけて改行されるよ！
+        await client.send_message(message.channel, "パソコン、Python、パワーーーーーーー！！")
+
+    if message.content == "筋トレ":
+        kaisu = ["10", "15", "20", "25", "30", "35", "40"]
+        syurui = ["腕立て", "腹筋", "背筋", "スクワット", "プランク", "全部"]
+        choice1 = random.choice(kaisu) #randomモジュール使用
+        choice2 = random.choice(syurui) #randomモジュール使用
+        await message.send_message(message.channel, choice2 "を" choice1 "回！ヤーー！！")
 
 bot.run(token)
