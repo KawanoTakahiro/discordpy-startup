@@ -48,7 +48,7 @@ async def on_message(message):
 async def loop():
     try:
         now = datetime.now().strftime('%H:%M')
-        if now == '20:20':
+        if now == '07:20':
             print("now")
             channel = bot.get_channel(695294256603988009)
             await channel.send('筋トレだ、ヤーーーーー！！')
